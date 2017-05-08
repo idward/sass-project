@@ -141,6 +141,35 @@ a.hello {
   }
 }
 
+/*占位符选择器(不会被编译)*/
+.content a%extreme {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+/*扩展的时候会编译*/
+.notice {
+  @extend %extreme;
+}
+
+/*!optional 标记*/
+//a.important {
+//  @extend .notice;
+//}
+
+/*指令中的@extend*/
+@media print {
+  .title {
+    border: 1px solid #f00;
+    background-color: #fdd;
+  }
+  .subtitle {
+    @extend .title;
+    border-width: 3px;
+  }
+}
+
 /*属性嵌套*/
 .funky {
   font: {
