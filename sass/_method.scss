@@ -1,0 +1,17 @@
+@mixin firefox-message($selector) {
+  body.firefox #{$selector}:before {
+    content: 'Hello, Firefox users!';
+  }
+}
+
+@mixin does-parent-exist {
+  @if & {
+    &:hover {
+      color: red;
+    }
+  } @else {
+    a {
+      color: red;
+    }
+  }
+}
