@@ -85,7 +85,7 @@ p {
 
 /*@extend合并样式2*/
 .hoverlink {
-  @extend a:hover;
+  @extend a.user:hover;
 }
 
 .comment a.user:hover {
@@ -93,6 +93,53 @@ p {
 }
 
 /*多重扩展 (Multiple Extends)*/
+.common {
+  border: 1px solid #00ff00;
+  background-color: #fdd;
+}
+
+.attention {
+  font-size: 3em;
+  background-color: #ff0;
+}
+
+.super {
+  @extend .common;
+  @extend .attention;
+  border-width: 3px;
+}
+
+/*链式扩展（Chaining Extends）*/
+.basic {
+  border: 1px solid #f00;
+  background-color: #fdd;
+}
+
+.ex-basic {
+  @extend .basic;
+  border-width: 3px;
+}
+
+.super-basic {
+  @extend .ex-basic;
+  position: fixed;
+  top: 10%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+}
+
+/*选择器序列 (Selector Sequences)*/
+#fake-links .hl {
+  @extend a.hello
+}
+
+a.hello {
+  color: blue;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 /*属性嵌套*/
 .funky {
