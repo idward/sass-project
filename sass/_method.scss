@@ -15,3 +15,30 @@
     }
   }
 }
+
+@mixin produce-items {
+  @for $i from 1 through 3 {
+    .item-#{$i} {
+      width: 2em * $i;
+    }
+  }
+}
+
+@mixin icon-image {
+  @each $name in puma, sea-slug, egret, salamander {
+    .#{$name}-icon {
+      background-image: url("/images/#{$name}.png");
+    }
+  }
+}
+
+@mixin multi-icon-image {
+  @each $name, $color, $cursor in (puma, black, default),
+          (sea-slug, blue, pointer), (egret, white, move) {
+    .#{$name}-multi-icon {
+      background-image: url("/images/#{$name}.png");
+      border: 1px solid $color;
+      cursor: $cursor;
+    }
+  }
+}
